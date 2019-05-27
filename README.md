@@ -6,6 +6,8 @@ See the lambda code at [./src/lambda/newsletter.js](./src/lambda/newsletter.js).
 
 Run it at [https://pocket-newsletter-lambda.netlify.com/](https://pocket-newsletter-lambda.netlify.com/).
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/HugoDF/pocket-newsletter-lambda)
+
 Table of Contents:
 - [Pocket Newsletter Generator Lambda](#pocket-newsletter-generator-lambda)
   - [Pocket Fetching logic](#pocket-fetching-logic)

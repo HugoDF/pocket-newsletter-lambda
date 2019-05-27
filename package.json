@@ -35,7 +35,6 @@
     "prettier": true,
     "rules": {
       "camelcase": 0
-    },
-    "globals": ["atob"]
+    }
   }
 }

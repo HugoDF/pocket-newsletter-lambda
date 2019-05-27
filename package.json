@@ -8,8 +8,9 @@
     "serve": "netlify-lambda serve src/lambda",
     "build": "yarn build:lambda && yarn build:css",
     "build:lambda": "netlify-lambda build src/lambda",
-    "build:css": "tailwind build src/styles.css -o public/styles.css",
-    "postbuild:css": "purgecss --css public/styles.css --content ./public/*.html --out public",
+    "build:css": "yarn build:tw",
+    "build:tw": "tailwind build src/styles.css -o public/styles.css",
+    "postbuild:css": "purgecss --css public/styles.css --content ./public/index.html --out public",
     "lint": "xo src",
     "format": "xo src --fix"
   },

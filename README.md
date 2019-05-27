@@ -6,6 +6,14 @@ See the lambda code at [./src/lambda/newsletter.js](./src/lambda/newsletter.js).
 
 Run it at [https://pocket-newsletter-lambda.netlify.com/](https://pocket-newsletter-lambda.netlify.com/).
 
+Table of Contents:
+- [Pocket Newsletter Generator Lambda](#pocket-newsletter-generator-lambda)
+  - [Pocket Fetching logic](#pocket-fetching-logic)
+  - [Lamdba validation and body-parsing](#lamdba-validation-and-body-parsing)
+  - [Sample response](#sample-response)
+  - [Simplifications applied here](#simplifications-applied-here)
+  - [Development setup](#development-setup)
+
 ## Pocket Fetching logic
 
 The bulk of the Pocket-specific logic is the `fetchBookmarks` function, it does the following:

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "yarn build:tw",
     "start": "netlify dev",
     "serve": "netlify-lambda serve src/lambda",
     "build": "yarn build:lambda && yarn build:css",

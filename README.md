@@ -257,7 +257,7 @@ You should run `yarn` before starting.
 
 The following scripts are available:
 
-* `yarn start`: start the Lambda(s) and serving the static directory using [Netlify Dev](https://www.netlify.com/products/dev/) . **Important:** before `start`.
+* `yarn start`: start the Lambda(s) and serving the static directory using [Netlify Dev](https://www.netlify.com/products/dev/) . **Important:** `yarn build:tw` runs before `start`.
 * `yarn build:tw`: build the full set of Tailwind CSS utilities (useful for development), make sure to check what your site looks will look like live using `yarn build:css`
 * `yarn build`: run netlify-lambda build + Tailwind CSS production build (removes unused classes using PurgeCSS)
 * `yarn build:css`: Tailwind CSS production build (removes unused classes using PurgeCSS)

@@ -1,0 +1,41 @@
+{
+  "name": "pocket-newsletter-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev",
+    "serve": "netlify-lambda serve src/lambda",
+    "build": "yarn build:lambda && yarn build:css",
+    "build:lambda": "netlify-lambda build src/lambda",
+    "build:css": "tailwind build src/styles.css -o public/styles.css",
+    "postbuild:css": "purgecss --css public/styles.css --content ./public/*.html --out public",
+    "lint": "xo src",
+    "format": "xo src --fix"
+  },
+  "keywords": [
+    "pocket-api",
+    "netlify",
+    "lambda"
+  ],
+  "author": "Hugo Di Francesco",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^2.11.19",
+    "netlify-lambda": "^1.4.13",
+    "purgecss": "^1.3.0",
+    "tailwindcss": "^1.0.2",
+    "xo": "^0.24.0"
+  },
+  "xo": {
+    "spaces": true,
+    "prettier": true,
+    "rules": {
+      "camelcase": 0
+    },
+    "globals": ["atob"]
+  }
+}

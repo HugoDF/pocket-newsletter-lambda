@@ -20,38 +20,38 @@ The bulk of the Pocket-specific logic is the `fetchBookmarks` function, it does 
 See the code
 ```js
 async function fetchBookmarks(consumerKey, accessToken) {
-	const res = await axios.post('https://getpocket.com/v3/get', {
-		consumer_key: consumerKey,
-		access_token: accessToken,
-		tag: 'newsletter',
-		state: 'all',
-		detailType: 'complete'
-	});
-	const {list} = res.data;
-	// List is a key-value timestamp->entry map
-	const entries = Object.values(list);
-	return entries.map(
-		({
-			given_title,
-			given_url,
-			resolved_url,
-			resolved_title,
-			excerpt,
-			authors,
-			rest
-		}) => ({
-			...rest,
-			title: given_title || resolved_title,
-			url: given_url || resolved_url,
-			excerpt,
-			authors: authors
-				? Object.values(authors)
-						.map(({name}) => name)
-						.filter(Boolean)
-						.join(',')
-				: ''
-		})
-	);
+  const res = await axios.post('https://getpocket.com/v3/get', {
+    consumer_key: consumerKey,
+    access_token: accessToken,
+    tag: 'newsletter',
+    state: 'all',
+    detailType: 'complete'
+  });
+  const {list} = res.data;
+  // List is a key-value timestamp->entry map
+  const entries = Object.values(list);
+  return entries.map(
+    ({
+      given_title,
+      given_url,
+      resolved_url,
+      resolved_title,
+      excerpt,
+      authors,
+      rest
+    }) => ({
+      ...rest,
+      title: given_title || resolved_title,
+      url: given_url || resolved_url,
+      excerpt,
+      authors: authors
+        ? Object.values(authors)
+            .map(({name}) => name)
+            .filter(Boolean)
+            .join(',')
+        : ''
+    })
+  );
 }
 ```
 
@@ -83,12 +83,12 @@ Parsing a base64-encoded string in Node is done using `Buffer.from(event.body, '
 To convert the body from URL-encoded form into an object, the following function is used, which works for POSTs with simple fields.
 ```js
 function parseUrlEncoded(urlEncodedString) {
-	const keyValuePairs = urlEncodedString.split('&');
-	return keyValuePairs.reduce((acc, kvPairString) => {
-		const [k, v] = kvPairString.split('=');
-		acc[k] = v;
-		return acc;
-	}, {});
+  const keyValuePairs = urlEncodedString.split('&');
+  return keyValuePairs.reduce((acc, kvPairString) => {
+    const [k, v] = kvPairString.split('=');
+    acc[k] = v;
+    return acc;
+  }, {});
 }
 ```
 
@@ -96,10 +96,10 @@ Here's the functionality in the lambda:
 
 ```js
 const {
-		pocket_consumer_key: pocketConsumerKey,
-		pocket_access_token: pocketAccessToken
-	} = event.isBase64Encoded
-		? parseUrlEncoded(Buffer.from(event.body, 'base64').toString('utf-8'))
+    pocket_consumer_key: pocketConsumerKey,
+    pocket_access_token: pocketAccessToken
+  } = event.isBase64Encoded
+    ? parseUrlEncoded(Buffer.from(event.body, 'base64').toString('utf-8'))
     : JSON.parse(event.body);
 ```
 

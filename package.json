@@ -23,7 +23,7 @@
   "author": "Hugo Di Francesco",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "netlify-cli": "^2.11.19",
